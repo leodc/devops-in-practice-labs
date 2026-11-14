@@ -1,80 +1,47 @@
-# SQS + Lambda: break the flow, recover the message
+# DevOps in Practice Labs
 
-Make Lambda fail, trace SQS retries, and recover a message from the DLQ.
-The first local practice lab from **DevOps in Practice**: real code, real logs,
-no AWS account required.
+Hands-on labs from [DevOps in Practice](https://leocasta.com/labs/).
+Each lab lives in its own directory with its code, setup instructions, and
+English and Spanish guides. Follow the stages, inspect the results, and keep
+your own evidence.
 
-**[English guide](README.en.md) · [Guía en español](README.es.md)**
+## Labs
 
-## The experiment
+| Directory | Practice | Guides |
+| --- | --- | --- |
+| [`sqs-lambda-retries/`](sqs-lambda-retries/) | Make Lambda fail, trace SQS retries, and recover a message from the DLQ using AWS Emulator. | [English](sqs-lambda-retries/README.en.md) · [Español](sqs-lambda-retries/README.es.md) |
 
-```text
-order-ok ──────┐
-              ├── SQS ── Lambda
-order-poison ──┘            │
-                  3 failed deliveries
-                           ↓
-                          DLQ
-                           │
-                   repair → redrive
-                           ↓
-                    SQS ── Lambda ✓
-```
-
-Eight deliberate stages: prepare, send, consume, diagnose, repair, redrive,
-verify, and cleanup. Stop to inspect between changes. The Python helper uses
-Boto3 and explicit loopback endpoints; the browser does not run the lab.
-Retries proceed automatically once consumption is enabled. Recovery requires
-an explicit configuration edit and redrive.
-
-## Start here
+## Get started
 
 ```bash
-git clone https://github.com/leodc/sqs-lambda-retries.git
-cd sqs-lambda-retries
+git clone https://github.com/leodc/devops-in-practice-labs.git
+cd devops-in-practice-labs/sqs-lambda-retries
 ```
 
-Choose the [English](README.en.md#setup) or [Spanish](README.es.md#preparación)
-setup guide before running the stages.
+Read the lab's setup guide before running commands. Run each lab from its own
+directory so its dependencies, configuration, and evidence stay together.
 
-- **Linux without Docker:** supported x86_64/aarch64 Linux, AWS Emulator,
-  Python 3.9+ with venv/pip, a text editor, and two terminals.
-- **macOS / Windows:** use a supported Linux environment or the optional Docker
-  setup. AWS Emulator has no native macOS or Windows binary.
-- **About 40 minutes**, plus installation. Git and internet access are needed
-  to clone and install dependencies. No AWS account or personal AWS credentials.
+## Repository structure
 
-## Files you will use
+```text
+devops-in-practice-labs/
+├── README.md
+└── sqs-lambda-retries/
+    ├── README.md
+    ├── README.en.md
+    ├── README.es.md
+    ├── lab.py
+    ├── handler.py
+    └── recorded/
+```
 
-| File | Purpose |
-| --- | --- |
-| `lab.py` | Boto3 calls, stage guards, observation and verification |
-| `handler.py` | Deterministic failure for `order-poison` |
-| `consumer.json` | Configuration you edit before applying the repair |
-| `start-emulator.sh` | Native Linux startup on loopback port 19397 |
-| `Dockerfile`, `docker-shell.sh` | Optional isolated Linux environment |
-| `recorded/` | Real reference-run events and original handler log messages |
-
-Your run writes evidence into `.lab/events.jsonl`. This directory is ignored by
-Git. Never commit local credentials or the raw emulator startup log.
-
-## What was validated
-
-The full flow passed on AWS Emulator **1.0.322**, Linux aarch64 inside a Docker
-container from macOS, with external networking disabled during execution.
-The reference run includes three failed deliveries, DLQ inspection, repair,
-redrive, successful processing, and cleanup. Six invalid transitions were
-also rejected. See [recorded evidence](recorded/README.md) for provenance,
-source hashes, and deliberate guard-test errors.
-
-The standalone native Linux installation was not tested on a separate host.
-This experiment does not verify production IAM enforcement, scaling, durability,
-or timing. Emulator 1.0.322 preserves message identity on redrive, while AWS
-documents new IDs; the guides explain that observed fidelity gap.
+New labs belong in a directory named after their lab ID. Include the code,
+dependencies, setup and cleanup instructions, and guides in both languages.
+Add a link to the lab in the table above. Each lab documents its own requirements.
 
 ## En español
 
-Provoca un fallo en Lambda, sigue los reintentos de SQS y rescata el mensaje de
-la DLQ. Nuestro primer lab local: código real, logs reales y sin cuenta de AWS.
-Sigue la [guía completa en español](README.es.md), inspecciona cada etapa y
-contrasta tus resultados con la evidencia de referencia.
+Labs de práctica de [DevOps in Practice](https://leocasta.com/es/labs/).
+Cada directorio contiene el código y las guías de un lab. Clona el repositorio
+una vez, entra en el directorio del ejercicio y sigue su guía de preparación.
+Inspecciona los resultados entre etapas y conserva tu propia evidencia.

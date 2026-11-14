@@ -12,8 +12,8 @@ Provoca un fallo en Lambda, sigue los reintentos de SQS y rescata el mensaje de 
 ### 1. Clona el repositorio
 
 ```bash
-git clone https://github.com/leodc/sqs-lambda-retries.git
-cd sqs-lambda-retries
+git clone https://github.com/leodc/devops-in-practice-labs.git
+cd devops-in-practice-labs/sqs-lambda-retries
 ```
 
 ### 2. Linux, sin Docker · terminal A
@@ -34,7 +34,7 @@ https://docs.aws.amazon.com/emulator/latest/userguide/getting-started-linux.html
 En otra terminal, entra en la carpeta del repositorio clonado (ajusta la ruta si hace falta) y activa su entorno de Python. Ejecuta aquí las etapas de la práctica.
 
 ```bash
-cd sqs-lambda-retries
+cd devops-in-practice-labs/sqs-lambda-retries
 source .venv/bin/activate
 ```
 

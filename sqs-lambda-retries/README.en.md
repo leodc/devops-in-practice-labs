@@ -12,8 +12,8 @@ Make Lambda fail, trace SQS retries, and recover a message from the DLQ. Our fir
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/leodc/sqs-lambda-retries.git
-cd sqs-lambda-retries
+git clone https://github.com/leodc/devops-in-practice-labs.git
+cd devops-in-practice-labs/sqs-lambda-retries
 ```
 
 ### 2. Linux, without Docker · terminal A
@@ -34,7 +34,7 @@ https://docs.aws.amazon.com/emulator/latest/userguide/getting-started-linux.html
 In a second terminal, enter the cloned repository directory (adjust the path if needed) and activate its Python environment. Run the practice stages here.
 
 ```bash
-cd sqs-lambda-retries
+cd devops-in-practice-labs/sqs-lambda-retries
 source .venv/bin/activate
 ```
 

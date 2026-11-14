@@ -41,8 +41,7 @@ setup guide before running the stages.
   Use one terminal for the emulator and another for the lab.
 - **Docker (macOS / Windows / Linux):** the image installs AWS Emulator 1.0.322
   and provides one working shell. AWS Emulator has no native macOS or Windows binary.
-- **About 40 minutes**, plus installation. Git and internet access are needed
-  to clone and install dependencies. No AWS account or personal AWS credentials.
+- **About 40 minutes**, plus installation. Git is needed to clone the repository. No AWS account or personal AWS credentials.
 
 ## Files you will use
 

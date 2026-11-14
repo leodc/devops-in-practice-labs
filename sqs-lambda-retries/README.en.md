@@ -23,7 +23,7 @@ cd devops-in-practice-labs/sqs-lambda-retries
 
 #### 2. Start the emulator
 
-Install AWS Emulator 1.0.322 using the guide below. You’ll also need Python to run the lab. From the lab directory, prepare its dependencies and start the emulator.
+Install AWS Emulator 1.0.322 using the guide below. You’ll also need Python with pip and venv to run the lab. From the lab directory, prepare its dependencies and start the emulator.
 
 [Install AWS Emulator 1.0.322](https://docs.aws.amazon.com/emulator/latest/userguide/versioning.html)
 
@@ -38,8 +38,7 @@ bash start-emulator.sh
 ```
 
 
-- Install python3-venv and pip if your distribution packages them separately. Installing packages requires internet access.
-- Confirm that aws-emulator --version reports 1.0.322. The emulator uses loopback port 19397. Wait until it is ready and leave this terminal running.
+- Leave this terminal running.
 
 #### 3. Open your working terminal
 
@@ -53,8 +52,6 @@ cd devops-in-practice-labs/sqs-lambda-retries
 source .venv/bin/activate
 ```
 
-
-- Keep terminal A running while you work in terminal B.
 
 Emulator running in A and Python ready in B. Continue in terminal B.
 
@@ -73,7 +70,7 @@ docker run --rm -it --name sqs-lambda-practice --network none --memory=2g --memo
 ```
 
 
-- Building requires internet access and a Docker engine running Linux containers.
+- Use a Docker engine running Linux containers.
 - Run the stages inside that shell. The container runs without external networking, published ports, or mounted AWS credentials.
 
 Container shell open and emulator ready. Continue inside the container.

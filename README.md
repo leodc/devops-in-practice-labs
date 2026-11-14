@@ -9,6 +9,7 @@ your own evidence.
 
 | Directory | Practice | Guides |
 | --- | --- | --- |
+| [`sqs-message-returns/`](sqs-message-returns/) | Start here: receive the same SQS message twice, then delete it. Five minutes after setup. | [English](sqs-message-returns/README.en.md) · [Español](sqs-message-returns/README.es.md) |
 | [`sqs-lambda-retries/`](sqs-lambda-retries/) | Make Lambda fail, trace SQS retries, and recover a message from the DLQ using AWS Emulator. | [English](sqs-lambda-retries/README.en.md) · [Español](sqs-lambda-retries/README.es.md) |
 | [`s3-version-recovery/`](s3-version-recovery/) | Recover the correct version of an overwritten and deleted S3 object. | [English](s3-version-recovery/README.en.md) · [Español](s3-version-recovery/README.es.md) |
 | [`dynamodb-lost-update/`](dynamodb-lost-update/) | Reproduce a lost update, reject stale writes, and retry from a fresh read. | [English](dynamodb-lost-update/README.en.md) · [Español](dynamodb-lost-update/README.es.md) |
@@ -19,7 +20,7 @@ your own evidence.
 
 ```bash
 git clone https://github.com/leodc/devops-in-practice-labs.git
-cd devops-in-practice-labs/sqs-lambda-retries
+cd devops-in-practice-labs/sqs-message-returns
 ```
 
 Read the lab's setup guide before running commands. Run each lab from its own
@@ -29,6 +30,7 @@ directory so its dependencies, configuration, and evidence stay together.
 
 ```text
 devops-in-practice-labs/
+├── sqs-message-returns/
 ├── sqs-lambda-retries/
 ├── s3-version-recovery/
 ├── dynamodb-lost-update/

@@ -1,0 +1,6 @@
+*
+!Dockerfile
+!lab.py
+!docker-shell.sh
+!validate.sh
+!requirements.txt

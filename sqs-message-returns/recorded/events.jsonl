@@ -1,0 +1,15 @@
+{"boto3": "1.40.75", "emulator": "Version: 1.0.322\nRelease date: 2026.11.10\nCommit: 7753983c6e495ec3612695b1336bf4936fc7b7fd", "endpoint": "https://127.0.0.1:19397", "event": "environment", "source_sha256": {"Dockerfile": "117f5646701d87e142d2019117b576f05f2a42940fa59c2bdf9b7ea3a320674e", "lab.py": "e7cf7fad20054d06f7fadaf81b14ff0196ef53fc8ce346084368e325da13d670", "requirements.txt": "b64acaf637b1d61a41d8643a9ed41865a2690050e9a5a2d737d84cbca8b2cb82", "validate.sh": "e49cb30782e35c76401816619b4f954f142fdb972b8e6204937765ed0f4e5ad8"}, "time": "2026-11-14T10:00:38.615281+00:00"}
+{"event": "stage_completed", "stage": "prepared", "time": "2026-11-14T10:00:38.622614+00:00"}
+{"body": "hello-again", "event": "sent", "message_id": "63b1c706-8395-4a85-aad5-fd0f644083c5", "time": "2026-11-14T10:00:38.622888+00:00", "visibility_seconds": 3}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('deleted', 'verified'); current: prepared. Read .lab/events.jsonl.", "time": "2026-11-14T10:00:38.751017+00:00"}
+{"event": "stage_completed", "stage": "received", "time": "2026-11-14T10:00:38.879025+00:00"}
+{"body": "hello-again", "event": "received_without_delete", "message_id": "63b1c706-8395-4a85-aad5-fd0f644083c5", "receive_count": 1, "time": "2026-11-14T10:00:38.879509+00:00", "visibility_seconds": 3}
+{"error_type": "RuntimeError", "event": "error", "message": "Run receive again to observe redelivery before deleting.", "time": "2026-11-14T10:00:39.003700+00:00"}
+{"event": "stage_completed", "stage": "received", "time": "2026-11-14T10:00:42.172911+00:00"}
+{"body": "hello-again", "event": "received_without_delete", "message_id": "63b1c706-8395-4a85-aad5-fd0f644083c5", "receive_count": 2, "time": "2026-11-14T10:00:42.174903+00:00", "visibility_seconds": 3}
+{"event": "received_for_delete", "message_id": "63b1c706-8395-4a85-aad5-fd0f644083c5", "receive_count": 3, "time": "2026-11-14T10:00:45.362379+00:00"}
+{"event": "stage_completed", "stage": "deleted", "time": "2026-11-14T10:00:45.371671+00:00"}
+{"event": "deleted", "message_id": "63b1c706-8395-4a85-aad5-fd0f644083c5", "time": "2026-11-14T10:00:45.372491+00:00"}
+{"event": "stage_completed", "stage": "verified", "time": "2026-11-14T10:00:46.540103+00:00"}
+{"counts": {"ApproximateNumberOfMessages": 0, "ApproximateNumberOfMessagesDelayed": 0, "ApproximateNumberOfMessagesNotVisible": 0}, "event": "verification", "messages_returned": 0, "result": "PASS", "time": "2026-11-14T10:00:46.541568+00:00"}
+{"event": "cleanup_completed", "logs": ".lab/events.jsonl", "time": "2026-11-14T10:00:46.704599+00:00"}

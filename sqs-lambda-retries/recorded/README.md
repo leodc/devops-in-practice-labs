@@ -1,6 +1,7 @@
 # Recorded evidence / Evidencia de referencia
 
-Captured 2026-11-12, 02:37:01–02:37:30 UTC with this staged `lab.py`.
+Captured 2026-11-12, 02:37:01–02:37:30 UTC with the staged `lab.py` at
+commit `42446769417b5ae0ab67412054b2a3716d73156a`.
 AWS Emulator 1.0.322 (commit 7753983c6e495ec3612695b1336bf4936fc7b7fd),
 Linux aarch64 / Amazon Linux 2023, Python 3.9, Boto3 1.40.75.
 Validated in a Docker Linux container from macOS, with `--network none` and a
@@ -27,3 +28,14 @@ Estos archivos provienen de una ejecución real del código por etapas contra
 el emulador local. No son salidas de AWS ni resultados de la sesión del lector.
 Los seis errores comprueban restricciones de orden deliberadamente; la
 recuperación, la verificación y la limpieza terminaron correctamente.
+
+The current runner adds bounded waits for delayed logs and empty DLQ receives.
+These original evidence files are unchanged and their source hashes identify
+the earlier runner, not the updated `lab.py`. The handler is unchanged.
+
+El runner actual espera logs retrasados y reintenta recepciones vacías de la DLQ
+con un tiempo límite. Esta evidencia original no se modificó: sus hashes
+identifican el runner anterior, no el `lab.py` actualizado. El handler no cambió.
+
+See [the updated runner validation](2026-11-14-diagnose/) for the new real run.
+Ver [la validación del runner corregido](2026-11-14-diagnose/) para la nueva ejecución real.

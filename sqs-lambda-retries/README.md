@@ -34,13 +34,13 @@ git clone https://github.com/leodc/devops-in-practice-labs.git
 cd devops-in-practice-labs/sqs-lambda-retries
 ```
 
-Choose the [English](README.en.md#setup) or [Spanish](README.es.md#preparación)
+Choose the [English](README.en.md#set-up-your-environment) or [Spanish](README.es.md#prepara-tu-entorno)
 setup guide before running the stages.
 
-- **Linux without Docker:** supported x86_64/aarch64 Linux, AWS Emulator,
-  Python 3.9+ with venv/pip, a text editor, and two terminals.
-- **macOS / Windows:** use a supported Linux environment or the optional Docker
-  setup. AWS Emulator has no native macOS or Windows binary.
+- **Linux:** install AWS Emulator 1.0.322 and Python with venv/pip.
+  Use one terminal for the emulator and another for the lab.
+- **Docker (macOS / Windows / Linux):** the image installs AWS Emulator 1.0.322
+  and provides one working shell. AWS Emulator has no native macOS or Windows binary.
 - **About 40 minutes**, plus installation. Git and internet access are needed
   to clone and install dependencies. No AWS account or personal AWS credentials.
 
@@ -52,7 +52,7 @@ setup guide before running the stages.
 | `handler.py` | Deterministic failure for `order-poison` |
 | `consumer.json` | Configuration you edit before applying the repair |
 | `start-emulator.sh` | Native Linux startup on loopback port 19397 |
-| `Dockerfile`, `docker-shell.sh` | Optional isolated Linux environment |
+| `Dockerfile`, `docker-shell.sh` | Isolated Linux environment |
 | `recorded/` | Real reference-run events and original handler log messages |
 
 Your run writes evidence into `.lab/events.jsonl`. This directory is ignored by
@@ -78,3 +78,19 @@ Provoca un fallo en Lambda, sigue los reintentos de SQS y rescata el mensaje de
 la DLQ. Nuestro primer lab local: código real, logs reales y sin cuenta de AWS.
 Sigue la [guía completa en español](README.es.md), inspecciona cada etapa y
 contrasta tus resultados con la evidencia de referencia.
+
+## Version and regression checks
+
+The Dockerfile pins AWS Emulator to **1.0.322**, the version in the recorded
+run. On Linux, install the same version using the
+[official versioned package instructions](https://docs.aws.amazon.com/emulator/latest/userguide/versioning.html)
+and confirm it with `aws-emulator --version`. The container base and OS packages
+are not pinned; this fixes the emulator version, not a byte-identical image.
+
+After installing the Python requirements, run the asynchronous diagnosis tests
+from this lab directory. They use mocks and virtual time, without an emulator
+or AWS account:
+
+```bash
+python -m unittest discover -s tests -v
+```

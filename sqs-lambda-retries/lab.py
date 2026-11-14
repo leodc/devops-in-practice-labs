@@ -41,6 +41,7 @@ def require(condition, message):
 
 def wait_for(label, read, accept, seconds=90):
     deadline = time.monotonic() + seconds
+    value = None
     while time.monotonic() < deadline:
         value = read()
         if accept(value):
@@ -238,14 +239,23 @@ class Lab:
             return self.counts(self.state["dlq"])
         wait_for("failed message in DLQ", observe,
                  lambda counts: counts["ApproximateNumberOfMessages"] == 1)
-        observations = self.read_logs()
-        failures = [row for row in observations if row.get("event") == "deliberate_failure"]
-        require([int(row["receive_count"]) for row in failures] == [1, 2, 3], "Expected three failed deliveries; inspect logs.")
-        require(all(row["message_id"] == self.state["messages"]["order-poison"] for row in failures), "Unexpected failed message.")
-        require(any(row.get("event") == "processed" and row.get("body") == "order-ok" for row in observations), "No successful control message.")
-        require(not any(row.get("event") == "processed" and row.get("body") == "order-poison" for row in observations), "Poison message unexpectedly processed.")
-        response = self.sqs.receive_message(QueueUrl=self.state["dlq"], MaxNumberOfMessages=1,
-            VisibilityTimeout=30, MessageSystemAttributeNames=["All"])
+        def evidence_ready(observations):
+            failures = [row for row in observations if row.get("event") == "deliberate_failure"]
+            require(all(row["message_id"] == self.state["messages"]["order-poison"] for row in failures),
+                    "Unexpected failed message.")
+            require(not any(row.get("event") == "processed" and row.get("body") == "order-poison"
+                            for row in observations), "Poison message unexpectedly processed.")
+            counts = sorted(int(row["receive_count"]) for row in failures)
+            require(len(counts) <= 3 and all(count in (1, 2, 3) for count in counts),
+                    "Unexpected failed deliveries; inspect logs.")
+            return counts == [1, 2, 3] and any(
+                row.get("event") == "processed" and row.get("body") == "order-ok"
+                for row in observations)
+        wait_for("three failure logs and successful control message", self.read_logs, evidence_ready)
+        response = wait_for("receive failed message from DLQ",
+            lambda: self.sqs.receive_message(QueueUrl=self.state["dlq"], MaxNumberOfMessages=1,
+                WaitTimeSeconds=5, VisibilityTimeout=30, MessageSystemAttributeNames=["All"]),
+            lambda result: bool(result.get("Messages")))
         message = response["Messages"][0]
         try:
             require(message["Body"] == "order-poison" and message["MessageId"] == self.state["messages"]["order-poison"], "Unexpected DLQ message.")

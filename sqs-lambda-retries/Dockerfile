@@ -1,8 +1,8 @@
 FROM public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
 
 RUN microdnf install -y python3 python3-pip shadow-utils && microdnf clean all
-ARG EMULATOR_CHANNEL=LTS/latest
-RUN curl -fSL "https://downloads.aws.com/aws-emulator/packages/aws-emulator/${EMULATOR_CHANNEL}/aws-emulator-$(uname -m).rpm" -o /tmp/aws-emulator.rpm \
+ARG EMULATOR_VERSION=1.0.322
+RUN curl -fSL "https://downloads.aws.com/aws-emulator/packages/aws-emulator/LTS/aws-emulator-${EMULATOR_VERSION}-1-$(uname -m).rpm" -o /tmp/aws-emulator.rpm \
     && sha256sum /tmp/aws-emulator.rpm > /opt/emulator-package.sha256 \
     && rpm -i /tmp/aws-emulator.rpm \
     && rm /tmp/aws-emulator.rpm \

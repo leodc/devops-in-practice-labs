@@ -1,6 +1,6 @@
 # SQS + Lambda: rompe el flujo, recupera el mensaje
 
-Provoca un fallo en Lambda, sigue los reintentos de SQS y rescata el mensaje de la DLQ. Nuestro primer lab local: código real, logs reales y sin cuenta de AWS.
+Provoca un fallo en Lambda, sigue los reintentos de SQS y rescata el mensaje de la DLQ.
 
 Un mensaje falla una y otra vez hasta terminar en una dead-letter queue (DLQ). Reproduce ese fallo con AWS Emulator, encuentra la causa en los logs y recupera el mensaje después de corregir el consumidor.
 

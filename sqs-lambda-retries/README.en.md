@@ -1,6 +1,6 @@
 # SQS + Lambda: break the flow, recover the message
 
-Make Lambda fail, trace SQS retries, and recover a message from the DLQ. Our first local lab: real code, real logs, no AWS account required.
+Make Lambda fail, trace SQS retries, and recover a message from the DLQ.
 
 A message keeps failing and ends up in a dead-letter queue (DLQ). Reproduce that failure with AWS Emulator, find the cause in the logs, and recover the message after fixing the consumer.
 

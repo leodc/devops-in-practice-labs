@@ -51,16 +51,15 @@ Cuando el emulador esté listo, continúa en la terminal B.
 
 #### 2. Entra al entorno del lab
 
-La imagen incluye AWS Emulator 1.0.322, Python y nano. Constrúyela desde la carpeta del lab y abre su shell.
+Inicia el contenedor desde la carpeta del lab. Incluye AWS Emulator 1.0.322, Python y nano. Los logs se guardan en .lab en tu equipo.
 
 **Tu terminal → shell del contenedor**
 
 ```bash
-docker build -t sqs-lambda-practice .
-docker run --rm -it --name sqs-lambda-practice --network none --memory=2g --memory-swap=2g sqs-lambda-practice
+bash docker-lab.sh
 ```
 
-- Docker debe estar configurado para usar contenedores Linux.
+- Usa Bash y Docker con contenedores Linux; en Windows, ejecuta estos comandos en WSL.
 
 La shell se abre cuando el emulador está listo. Continúa ahí.
 
@@ -196,16 +195,16 @@ Una DLQ vacía solo indica que el mensaje salió de ella. Para confirmar la recu
 
 ## 8. Guarda los logs y limpia
 
-Elimina los recursos emulados. Tus logs permanecen en .lab/events.jsonl.
+Elimina los recursos emulados. La secuencia completa queda en .lab/events.jsonl en tu equipo, incluso después de eliminar el contenedor.
 
 ```bash
 python lab.py cleanup
-tail -n 5 .lab/events.jsonl
+cat .lab/events.jsonl
 ```
 
 - Comprueba que aparezca cleanup_completed.
 - Linux: detén la terminal A con Ctrl+C.
-- Docker: antes de salir del contenedor, ejecuta docker cp sqs-lambda-practice:/opt/lab/.lab ./practice-logs desde una terminal del host. Después sal de la shell del contenedor.
+- Docker: sal de la shell del contenedor. Desde la carpeta del lab en tu equipo, abre .lab/events.jsonl en tu editor o ejecuta cat .lab/events.jsonl.
 - Si reiniciaste el emulador a mitad del lab, ejecuta python lab.py reset y después python lab.py prepare. Los logs anteriores se conservan; usa las fechas para distinguir ejecuciones.
 
 ¿Qué entradas del log explican el fallo y la recuperación?

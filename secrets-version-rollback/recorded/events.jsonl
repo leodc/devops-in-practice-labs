@@ -1,0 +1,22 @@
+{"boto3": "1.40.75", "emulator": "Version: 1.0.322\nRelease date: 2026.11.10\nCommit: 7753983c6e495ec3612695b1336bf4936fc7b7fd", "endpoint": "https://127.0.0.1:19397", "event": "environment", "lab_sha256": "f8b6bd7960e33e83cc01d281c0863f817f1f8c8e6060456aacb104d8a1c86d0b", "time": "2026-11-14T09:46:29.470507+00:00"}
+{"event": "stage_completed", "stage": "prepared", "time": "2026-11-14T09:46:29.477789+00:00"}
+{"event": "consumer_read", "result": "ACCEPTED", "stages": ["AWSCURRENT"], "time": "2026-11-14T09:46:29.480843+00:00", "valid": true, "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}
+{"event": "versions", "phase": "prepared", "secret": "practice-secret-30e31b7090", "time": "2026-11-14T09:46:29.620071+00:00", "versions": [{"stages": ["AWSCURRENT"], "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}]}
+{"event": "current_version", "stages": ["AWSCURRENT"], "time": "2026-11-14T09:46:29.622269+00:00", "valid": true, "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('diagnosed',); current: prepared. Run inspect.", "time": "2026-11-14T09:46:29.749253+00:00"}
+{"event": "consumer_read", "reason": "consumer_requires_schema_1_and_api_key", "result": "REJECTED", "stages": ["AWSCURRENT"], "time": "2026-11-14T09:46:29.882311+00:00", "valid": false, "version_id": "795b2924-b170-484f-adf0-261c67676152"}
+{"event": "stage_completed", "stage": "broken", "time": "2026-11-14T09:46:29.883781+00:00"}
+{"event": "versions", "phase": "broken", "secret": "practice-secret-30e31b7090", "time": "2026-11-14T09:46:30.011693+00:00", "versions": [{"stages": ["AWSPREVIOUS"], "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}, {"stages": ["AWSCURRENT"], "version_id": "795b2924-b170-484f-adf0-261c67676152"}]}
+{"event": "current_version", "stages": ["AWSCURRENT"], "time": "2026-11-14T09:46:30.013981+00:00", "valid": false, "version_id": "795b2924-b170-484f-adf0-261c67676152"}
+{"event": "version_checked", "stages": ["AWSPREVIOUS"], "time": "2026-11-14T09:46:30.147978+00:00", "valid": true, "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}
+{"event": "version_checked", "stages": ["AWSCURRENT"], "time": "2026-11-14T09:46:30.149757+00:00", "valid": false, "version_id": "795b2924-b170-484f-adf0-261c67676152"}
+{"current_version": "795b2924-b170-484f-adf0-261c67676152", "event": "diagnosis", "reason": "AWSCURRENT_points_to_incompatible_schema", "recovery_file": "recovery.json", "time": "2026-11-14T09:46:30.152105+00:00"}
+{"event": "stage_completed", "stage": "diagnosed", "time": "2026-11-14T09:46:30.153480+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Set recovery.json version_id to the valid version from diagnose.", "time": "2026-11-14T09:46:30.279396+00:00"}
+{"event": "stage_completed", "stage": "repaired", "time": "2026-11-14T09:46:30.423683+00:00"}
+{"event": "label_moved", "from_version": "795b2924-b170-484f-adf0-261c67676152", "label": "AWSCURRENT", "time": "2026-11-14T09:46:30.424253+00:00", "to_version": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}
+{"event": "versions", "phase": "repaired", "secret": "practice-secret-30e31b7090", "time": "2026-11-14T09:46:30.553044+00:00", "versions": [{"stages": ["AWSCURRENT"], "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}, {"stages": ["AWSPREVIOUS"], "version_id": "795b2924-b170-484f-adf0-261c67676152"}]}
+{"event": "current_version", "stages": ["AWSCURRENT"], "time": "2026-11-14T09:46:30.555199+00:00", "valid": true, "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}
+{"event": "stage_completed", "stage": "verified", "time": "2026-11-14T09:46:30.684331+00:00"}
+{"consumer": "fresh_read_without_version_selector", "current": {"stages": ["AWSCURRENT"], "valid": true, "version_id": "ac0e556f-6f04-45e7-ad26-1d3e1a09dd70"}, "event": "verification", "previous": {"stages": ["AWSPREVIOUS"], "valid": false, "version_id": "795b2924-b170-484f-adf0-261c67676152"}, "result": "PASS", "time": "2026-11-14T09:46:30.684885+00:00"}
+{"event": "cleanup_completed", "logs": ".lab/events.jsonl", "time": "2026-11-14T09:46:31.328492+00:00"}

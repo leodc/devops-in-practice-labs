@@ -1,0 +1,6 @@
+*
+!Dockerfile
+!lab.py
+!recovery.json
+!docker-shell.sh
+!validate.sh

@@ -1,0 +1,4 @@
+{
+  "source": ["practice.orders"],
+  "detail-type": ["order.created"]
+}

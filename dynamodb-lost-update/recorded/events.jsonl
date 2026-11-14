@@ -1,0 +1,38 @@
+{"boto3": "1.40.75", "emulator": "Version: 1.0.322\nRelease date: 2026.11.10\nCommit: 7753983c6e495ec3612695b1336bf4936fc7b7fd", "endpoint": "https://127.0.0.1:19397", "event": "environment", "source_sha256": {"Dockerfile": "cdcbd5cb3e34b219476de662cc814413b47daacc6fe3d627400da5e571e9fa78", "lab.py": "a1f21553e8627d6ab4bed0c7384e70044184e38817e93b27ba195bf5f4664d41", "requirements.txt": "b64acaf637b1d61a41d8643a9ed41865a2690050e9a5a2d737d84cbca8b2cb82", "validate.py": "9703b6742fbd3fa8cfaeccb125ac30c986d35347b4f7c34e27be03e910023291", "writer.json": "6751440975c61286057bc1d3abd5081d964cf41060ac1e1a360c47f64599dfcb"}, "time": "2026-11-14T09:47:07.764004+00:00"}
+{"event": "counter_reset", "item": {"value": 0, "version": 0}, "time": "2026-11-14T09:47:10.789609+00:00"}
+{"event": "stage_completed", "stage": "prepared", "time": "2026-11-14T09:47:10.793901+00:00"}
+{"applied_writer": {"check_version": false}, "event": "inspection", "file_writer": {"check_version": false}, "item": {"value": 0, "version": 0}, "stage": "prepared", "status": "ACTIVE", "table": "practice-ddb-e6c1775836", "time": "2026-11-14T09:47:10.799591+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "A session exists. Use inspect or cleanup first.", "time": "2026-11-14T09:47:10.959122+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('conflict',); current: prepared. Run inspect.", "time": "2026-11-14T09:47:11.093887+00:00"}
+{"event": "stage_completed", "stage": "collision_started", "time": "2026-11-14T09:47:11.226687+00:00"}
+{"consistent_read": true, "event": "snapshots_read", "snapshots": {"A": {"value": 0, "version": 0}, "B": {"value": 0, "version": 0}}, "time": "2026-11-14T09:47:11.231578+00:00"}
+{"check_version": false, "event": "write_accepted", "observed": {"value": 1, "version": 1}, "snapshot": {"value": 0, "version": 0}, "time": "2026-11-14T09:47:11.233444+00:00", "writer": "A"}
+{"check_version": false, "event": "write_accepted", "observed": {"value": 1, "version": 1}, "snapshot": {"value": 0, "version": 0}, "time": "2026-11-14T09:47:11.234753+00:00", "writer": "B"}
+{"event": "stage_completed", "stage": "collided", "time": "2026-11-14T09:47:11.235614+00:00"}
+{"applied_writer": {"check_version": false}, "event": "inspection", "file_writer": {"check_version": false}, "item": {"value": 1, "version": 1}, "stage": "collided", "status": "ACTIVE", "table": "practice-ddb-e6c1775836", "time": "2026-11-14T09:47:11.239074+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('prepared',); current: collided. Run inspect.", "time": "2026-11-14T09:47:11.368954+00:00"}
+{"accepted_writes": 2, "cause": "Both writers calculated 0 + 1 before either write.", "event": "lost_update", "expected_value": 2, "observed": {"value": 1, "version": 1}, "time": "2026-11-14T09:47:11.502727+00:00"}
+{"event": "stage_completed", "stage": "diagnosed", "time": "2026-11-14T09:47:11.503970+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Set check_version to true in writer.json first.", "time": "2026-11-14T09:47:11.636880+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "writer.json must contain only \"check_version\": true or false.", "time": "2026-11-14T09:47:11.770261+00:00"}
+{"applied_writer": {"check_version": false}, "event": "inspection", "file_writer": {"check_version": true}, "item": {"value": 1, "version": 1}, "stage": "diagnosed", "status": "ACTIVE", "table": "practice-ddb-e6c1775836", "time": "2026-11-14T09:47:11.964658+00:00"}
+{"event": "stage_completed", "stage": "repaired", "time": "2026-11-14T09:47:12.106739+00:00"}
+{"configuration": {"check_version": true}, "event": "writer_applied", "time": "2026-11-14T09:47:12.107142+00:00", "writer_sha256": "c1b344aa051bd0c99e0cbb4a3ff2c1c8940595aca0047e21c85ff0d0bec30749"}
+{"event": "stage_completed", "stage": "replay_started", "time": "2026-11-14T09:47:12.240825+00:00"}
+{"event": "counter_reset", "item": {"value": 0, "version": 0}, "time": "2026-11-14T09:47:12.245332+00:00"}
+{"consistent_read": true, "event": "snapshots_read", "snapshots": {"A": {"value": 0, "version": 0}, "B": {"value": 0, "version": 0}}, "time": "2026-11-14T09:47:12.248183+00:00"}
+{"check_version": true, "event": "write_accepted", "observed": {"value": 1, "version": 1}, "snapshot": {"value": 0, "version": 0}, "time": "2026-11-14T09:47:12.249920+00:00", "writer": "A"}
+{"check_version": true, "code": "ConditionalCheckFailedException", "event": "write_rejected", "observed": {"value": 1, "version": 1}, "snapshot": {"value": 0, "version": 0}, "time": "2026-11-14T09:47:12.253195+00:00", "writer": "B"}
+{"event": "stage_completed", "stage": "conflict", "time": "2026-11-14T09:47:12.254433+00:00"}
+{"applied_writer": {"check_version": true}, "event": "inspection", "file_writer": {"check_version": true}, "item": {"value": 1, "version": 1}, "stage": "conflict", "status": "ACTIVE", "table": "practice-ddb-e6c1775836", "time": "2026-11-14T09:47:12.257177+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('retried', 'verified'); current: conflict. Run inspect.", "time": "2026-11-14T09:47:12.389284+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('repaired',); current: conflict. Run inspect.", "time": "2026-11-14T09:47:12.520222+00:00"}
+{"event": "stage_completed", "stage": "retry_started", "time": "2026-11-14T09:47:12.655109+00:00"}
+{"after": {"value": 1, "version": 1}, "before": {"value": 0, "version": 0}, "event": "snapshot_refreshed", "time": "2026-11-14T09:47:12.658274+00:00", "writer": "B"}
+{"check_version": true, "event": "write_accepted", "observed": {"value": 2, "version": 2}, "snapshot": {"value": 1, "version": 1}, "time": "2026-11-14T09:47:12.660095+00:00", "writer": "B"}
+{"event": "stage_completed", "stage": "retried", "time": "2026-11-14T09:47:12.660986+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Expected stage ('conflict',); current: retried. Run inspect.", "time": "2026-11-14T09:47:12.793817+00:00"}
+{"event": "verification", "increments": 2, "observed": {"value": 2, "version": 2}, "result": "PASS", "time": "2026-11-14T09:47:12.928307+00:00"}
+{"event": "stage_completed", "stage": "verified", "time": "2026-11-14T09:47:12.929507+00:00"}
+{"applied_writer": {"check_version": true}, "event": "inspection", "file_writer": {"check_version": true}, "item": {"value": 2, "version": 2}, "stage": "verified", "status": "ACTIVE", "table": "practice-ddb-e6c1775836", "time": "2026-11-14T09:47:13.067616+00:00"}
+{"event": "cleanup_completed", "table": "practice-ddb-e6c1775836", "time": "2026-11-14T09:47:16.252287+00:00"}

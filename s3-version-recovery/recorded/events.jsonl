@@ -1,0 +1,29 @@
+{"boto3": "1.40.75", "emulator": "Version: 1.0.322\nRelease date: 2026.11.10\nCommit: 7753983c6e495ec3612695b1336bf4936fc7b7fd", "endpoint": "https://127.0.0.1:19397", "event": "environment", "source_sha256": {"Dockerfile": "8c0087ce443958239c4ead4cd2a5bf03ef47d7c0e92a3c58eedc804968cefa5d", "docker-lab.sh": "2ab52d69c9aec5a7c7e09560784fb7a7b1ab558fbe51d4cafbc72376533686bf", "docker-shell.sh": "259c84a8dc165dbf7171fbe0a72b72f1c5791ee32abafe328db8ea5594c3c954", "lab.py": "37da4f0572bfc44e1328d4df09efd7bea1a8f4d1354beb8cbc4d1bfb3df4df9b", "requirements.txt": "b64acaf637b1d61a41d8643a9ed41865a2690050e9a5a2d737d84cbca8b2cb82", "start-emulator.sh": "147dd80d7560dc8a3d6cda3c518ab26cf1f69cd074f60fb2168b113e12e3bdaf", "validate.sh": "8dea1580b74eae088fb5cd014ab49333a0d1357df4c2abc13ace4b0e1e7b6a61"}, "time": "2026-11-14T09:46:08.194311+00:00"}
+{"content": "{\"service\":\"checkout\",\"timeout_seconds\":30}", "event": "original_uploaded", "sha256": "bb05bf2c57c1f5aa3c5fb93c7e05b71e5e43848f584896c8047c16df3c2563a9", "time": "2026-11-14T09:46:08.248813+00:00", "version_id": "014eff17fab3d44869c86a6beec09942"}
+{"event": "stage_completed", "stage": "prepared", "time": "2026-11-14T09:46:08.250341+00:00"}
+{"bucket": "practice-s3-e18cf88fd5", "event": "session", "stage": "prepared", "time": "2026-11-14T09:46:08.439965+00:00", "versioning": "Enabled"}
+{"content": "{\"service\":\"checkout\",\"timeout_seconds\":30}", "event": "current_object", "sha256": "bb05bf2c57c1f5aa3c5fb93c7e05b71e5e43848f584896c8047c16df3c2563a9", "time": "2026-11-14T09:46:08.443184+00:00", "version_id": "014eff17fab3d44869c86a6beec09942"}
+{"delete_marker": false, "event": "version", "key": "config.json", "latest": true, "time": "2026-11-14T09:46:08.454497+00:00", "version_id": "014eff17fab3d44869c86a6beec09942"}
+{"content": "{\"service\":\"checkout\",\"timeout_seconds\":0}", "event": "bad_configuration_uploaded", "time": "2026-11-14T09:46:08.661722+00:00", "version_id": "8e3b283b276e085c198846598dbe8cb4"}
+{"delete_marker": true, "event": "object_deleted", "time": "2026-11-14T09:46:08.666629+00:00", "version_id": "c180decc50cbbe53f1c45e93bee24442"}
+{"event": "stage_completed", "stage": "broken", "time": "2026-11-14T09:46:08.667775+00:00"}
+{"bucket": "practice-s3-e18cf88fd5", "event": "session", "stage": "broken", "time": "2026-11-14T09:46:08.850710+00:00", "versioning": "Enabled"}
+{"error_code": "NoSuchKey", "event": "current_object_missing", "http_status": 404, "time": "2026-11-14T09:46:08.854733+00:00"}
+{"delete_marker": false, "event": "version", "key": "config.json", "latest": false, "time": "2026-11-14T09:46:08.863740+00:00", "version_id": "8e3b283b276e085c198846598dbe8cb4"}
+{"delete_marker": false, "event": "version", "key": "config.json", "latest": false, "time": "2026-11-14T09:46:08.864192+00:00", "version_id": "014eff17fab3d44869c86a6beec09942"}
+{"delete_marker": true, "event": "version", "key": "config.json", "latest": true, "time": "2026-11-14T09:46:08.864430+00:00", "version_id": "c180decc50cbbe53f1c45e93bee24442"}
+{"content": "{\"service\":\"checkout\",\"timeout_seconds\":0}", "event": "version_content", "sha256": "a4a2af69ec5bdf7ef5eaf76b7bf23636c75d5d76f4664017ad8e3d4095b0fa27", "time": "2026-11-14T09:46:08.867581+00:00", "version_id": "8e3b283b276e085c198846598dbe8cb4"}
+{"content": "{\"service\":\"checkout\",\"timeout_seconds\":30}", "event": "version_content", "sha256": "bb05bf2c57c1f5aa3c5fb93c7e05b71e5e43848f584896c8047c16df3c2563a9", "time": "2026-11-14T09:46:08.869687+00:00", "version_id": "014eff17fab3d44869c86a6beec09942"}
+{"event": "stage_completed", "stage": "diagnosed", "time": "2026-11-14T09:46:08.870829+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "That configuration has an invalid timeout. Choose another version.", "time": "2026-11-14T09:46:09.064840+00:00"}
+{"event": "version_restored", "new_version": "ba240be8196984c3ebbbbdece4ce530b", "source_version": "014eff17fab3d44869c86a6beec09942", "time": "2026-11-14T09:46:09.255350+00:00"}
+{"event": "stage_completed", "stage": "repaired", "time": "2026-11-14T09:46:09.256837+00:00"}
+{"event": "recovery_verified", "file": ".lab/recovered-config.json", "history_entries": 4, "matches_original": true, "sha256": "bb05bf2c57c1f5aa3c5fb93c7e05b71e5e43848f584896c8047c16df3c2563a9", "time": "2026-11-14T09:46:09.434978+00:00", "version_id": "ba240be8196984c3ebbbbdece4ce530b"}
+{"event": "stage_completed", "stage": "verified", "time": "2026-11-14T09:46:09.436184+00:00"}
+{"bucket": "practice-s3-e18cf88fd5", "event": "session", "stage": "verified", "time": "2026-11-14T09:46:09.609815+00:00", "versioning": "Enabled"}
+{"content": "{\"service\":\"checkout\",\"timeout_seconds\":30}", "event": "current_object", "sha256": "bb05bf2c57c1f5aa3c5fb93c7e05b71e5e43848f584896c8047c16df3c2563a9", "time": "2026-11-14T09:46:09.612724+00:00", "version_id": "ba240be8196984c3ebbbbdece4ce530b"}
+{"delete_marker": false, "event": "version", "key": "config.json", "latest": true, "time": "2026-11-14T09:46:09.621517+00:00", "version_id": "ba240be8196984c3ebbbbdece4ce530b"}
+{"delete_marker": false, "event": "version", "key": "config.json", "latest": false, "time": "2026-11-14T09:46:09.622168+00:00", "version_id": "8e3b283b276e085c198846598dbe8cb4"}
+{"delete_marker": false, "event": "version", "key": "config.json", "latest": false, "time": "2026-11-14T09:46:09.622705+00:00", "version_id": "014eff17fab3d44869c86a6beec09942"}
+{"delete_marker": true, "event": "version", "key": "config.json", "latest": false, "time": "2026-11-14T09:46:09.623025+00:00", "version_id": "c180decc50cbbe53f1c45e93bee24442"}
+{"bucket": "practice-s3-e18cf88fd5", "event": "cleanup_completed", "logs": ".lab/events.jsonl", "time": "2026-11-14T09:46:09.807580+00:00"}

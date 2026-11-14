@@ -1,0 +1,21 @@
+{"boto3": "1.40.75", "emulator_version": "Version: 1.0.322\nRelease date: 2026.11.10\nCommit: 7753983c6e495ec3612695b1336bf4936fc7b7fd", "endpoint": "https://127.0.0.1:19397", "event": "environment", "source_sha256": {"Dockerfile": "caa3360bc3aa06de296ebb718fe30ae750e0c897ee1148ac6abb3b4794244253", "lab.py": "65d9dfc559ed941c8b2bf4d7d2f871cd0c694bbcdb33be1565378e0ced96da05", "pattern.json": "ed1ade43e6fedd5cf0eec62b588e67d454da1e286d240fe114785479af42aa41", "requirements.txt": "b64acaf637b1d61a41d8643a9ed41865a2690050e9a5a2d737d84cbca8b2cb82"}, "time": "2026-11-14T09:51:58.818200+00:00"}
+{"event": "stage_completed", "stage": "prepared", "time": "2026-11-14T09:51:58.833834+00:00"}
+{"event": "inspection", "pattern": {"detail-type": ["order.created"], "source": ["practice.orders"]}, "phase": "prepared", "queue": {"ApproximateNumberOfMessages": "0", "ApproximateNumberOfMessagesNotVisible": "0"}, "time": "2026-11-14T09:51:58.982751+00:00"}
+{"correlation_id": "91cc5151f0654b5aa44251e659c99b99", "detail_type": "OrderCreated", "entries": [{"EventId": "18e7e097-cf5c-b28f-0000-000000000001"}], "event": "published", "failed_entry_count": 0, "time": "2026-11-14T09:51:59.155110+00:00"}
+{"event": "stage_completed", "stage": "sent", "time": "2026-11-14T09:51:59.158654+00:00"}
+{"correlation_id": "91cc5151f0654b5aa44251e659c99b99", "event": "pattern_diagnosis", "event_detail_type": "OrderCreated", "matched": false, "pattern": {"detail-type": ["order.created"], "source": ["practice.orders"]}, "time": "2026-11-14T09:51:59.316009+00:00"}
+{"event": "stage_completed", "stage": "diagnosed", "time": "2026-11-14T09:51:59.317485+00:00"}
+{"event": "candidate_pattern", "negative_matches": false, "pattern": {"detail-type": ["order.created"], "source": ["practice.orders"]}, "positive_matches": false, "time": "2026-11-14T09:51:59.458149+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "The pattern must match OrderCreated and reject OrderCancelled. Edit pattern.json.", "time": "2026-11-14T09:51:59.458903+00:00"}
+{"event": "candidate_pattern", "negative_matches": false, "pattern": {"detail-type": ["OrderCreated"], "source": ["practice.orders"]}, "positive_matches": true, "time": "2026-11-14T09:51:59.615642+00:00"}
+{"event": "rule_updated", "pattern": {"detail-type": ["OrderCreated"], "source": ["practice.orders"]}, "pattern_sha256": "830886be9230ffbe154abd2181ed96d50752c42a1f565a6d6723d2766c78f58f", "time": "2026-11-14T09:51:59.621857+00:00"}
+{"event": "stage_completed", "stage": "repaired", "time": "2026-11-14T09:51:59.623097+00:00"}
+{"event": "inspection", "pattern": {"detail-type": ["OrderCreated"], "source": ["practice.orders"]}, "phase": "repaired", "queue": {"ApproximateNumberOfMessages": "0", "ApproximateNumberOfMessagesNotVisible": "0"}, "time": "2026-11-14T09:51:59.765702+00:00"}
+{"correlation_id": "a9950d6f3e3d448f915533bd31b80402", "detail_type": "OrderCreated", "entries": [{"EventId": "18e7e097-fc9c-993d-0000-000000000002"}], "event": "published", "failed_entry_count": 0, "time": "2026-11-14T09:51:59.915583+00:00"}
+{"correlation_id": "f9f0d88007ef4917a3ed022f17532389", "detail_type": "OrderCancelled", "entries": [{"EventId": "18e7e097-fcda-0462-0000-000000000003"}], "event": "published", "failed_entry_count": 0, "time": "2026-11-14T09:51:59.917511+00:00"}
+{"event": "stage_completed", "stage": "resent", "time": "2026-11-14T09:51:59.918510+00:00"}
+{"correlation_id": "a9950d6f3e3d448f915533bd31b80402", "detail_type": "OrderCreated", "event": "queue_delivery", "event_id": "18e7e097-fc9c-993d-0000-000000000002", "time": "2026-11-14T09:52:00.075643+00:00"}
+{"correlation_id": "a9950d6f3e3d448f915533bd31b80402", "event": "verification", "negative_delivery_observed": false, "negative_pattern_match": false, "observation": "bounded; negative filtering established by TestEventPattern", "positive_delivered": true, "positive_pattern_match": true, "time": "2026-11-14T09:52:03.113737+00:00"}
+{"event": "stage_completed", "stage": "verified", "time": "2026-11-14T09:52:03.119362+00:00"}
+{"event": "cleanup", "logs": ".lab/events.jsonl", "name": "practice-events-877785c953", "time": "2026-11-14T09:52:03.296473+00:00"}
+{"error_type": "RuntimeError", "event": "error", "message": "Restore pattern.json detail-type to order.created before preparing a new run.", "time": "2026-11-14T09:52:03.431413+00:00"}

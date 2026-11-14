@@ -1,0 +1,5 @@
+.lab
+.venv
+recorded
+__pycache__
+!validate.sh

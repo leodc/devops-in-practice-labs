@@ -1,0 +1,19 @@
+{
+  "execution": "bash docker-lab.sh bash validate.sh",
+  "date_utc": "2026-11-14",
+  "host": "macOS; Docker Desktop Linux aarch64 container",
+  "emulator_version": "1.0.322",
+  "boto3_version": "1.40.75",
+  "events_sha256": "b3a8ee5a09997fde2d259860e34578e13123efe2d0dc4b826b64b4391586acb9",
+  "source_sha256": {
+    "Dockerfile": "8c0087ce443958239c4ead4cd2a5bf03ef47d7c0e92a3c58eedc804968cefa5d",
+    "docker-lab.sh": "2ab52d69c9aec5a7c7e09560784fb7a7b1ab558fbe51d4cafbc72376533686bf",
+    "docker-shell.sh": "259c84a8dc165dbf7171fbe0a72b72f1c5791ee32abafe328db8ea5594c3c954",
+    "lab.py": "37da4f0572bfc44e1328d4df09efd7bea1a8f4d1354beb8cbc4d1bfb3df4df9b",
+    "requirements.txt": "b64acaf637b1d61a41d8643a9ed41865a2690050e9a5a2d737d84cbca8b2cb82",
+    "start-emulator.sh": "147dd80d7560dc8a3d6cda3c518ab26cf1f69cd074f60fb2168b113e12e3bdaf",
+    "validate.sh": "8dea1580b74eae088fb5cd014ab49333a0d1357df4c2abc13ace4b0e1e7b6a61"
+  },
+  "native_linux_host_tested": false,
+  "notes": "JSONL records actual SDK observations emitted by lab.py; it is not an S3 server access log. Expected error is the negative test rejecting the invalid source version."
+}

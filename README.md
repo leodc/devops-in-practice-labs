@@ -10,6 +10,10 @@ your own evidence.
 | Directory | Practice | Guides |
 | --- | --- | --- |
 | [`sqs-lambda-retries/`](sqs-lambda-retries/) | Make Lambda fail, trace SQS retries, and recover a message from the DLQ using AWS Emulator. | [English](sqs-lambda-retries/README.en.md) · [Español](sqs-lambda-retries/README.es.md) |
+| [`s3-version-recovery/`](s3-version-recovery/) | Recover the correct version of an overwritten and deleted S3 object. | [English](s3-version-recovery/README.en.md) · [Español](s3-version-recovery/README.es.md) |
+| [`dynamodb-lost-update/`](dynamodb-lost-update/) | Reproduce a lost update, reject stale writes, and retry from a fresh read. | [English](dynamodb-lost-update/README.en.md) · [Español](dynamodb-lost-update/README.es.md) |
+| [`eventbridge-missing-event/`](eventbridge-missing-event/) | Diagnose an accepted event that misses its rule and verify delivery to SQS. | [English](eventbridge-missing-event/README.en.md) · [Español](eventbridge-missing-event/README.es.md) |
+| [`secrets-version-rollback/`](secrets-version-rollback/) | Recover a secret version the consumer accepts by moving AWSCURRENT. | [English](secrets-version-rollback/README.en.md) · [Español](secrets-version-rollback/README.es.md) |
 
 ## Get started
 
@@ -25,14 +29,11 @@ directory so its dependencies, configuration, and evidence stay together.
 
 ```text
 devops-in-practice-labs/
-├── README.md
-└── sqs-lambda-retries/
-    ├── README.md
-    ├── README.en.md
-    ├── README.es.md
-    ├── lab.py
-    ├── handler.py
-    └── recorded/
+├── sqs-lambda-retries/
+├── s3-version-recovery/
+├── dynamodb-lost-update/
+├── eventbridge-missing-event/
+└── secrets-version-rollback/
 ```
 
 New labs belong in a directory named after their lab ID. Include the code,
